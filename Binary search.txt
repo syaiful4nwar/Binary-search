@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int cari=7;
+
+void binary(int data[], int kiri, int kanan)
+{
+    int tengah;
+    if(kiri < kanan)
+    {
+        tengah=(kiri + kanan)/2;
+        if(data[tengah] < cari)
+        {
+            binary(data,tengah+1,kanan);
+        }
+        else if(data[tengah] > cari)
+        {
+            binary(data,kiri,tengah-1);
+        }
+        else
+        {
+            cout<<"Ketemu di indeks ke = "<<tengah;
+        }
+    }
+    else
+    {
+        cout<<"Data tidak ketemu !!!";
+    }
+    cout<<"\n";
+}
+
+int main(int argc, char **argv)
+{
+	int data[8]={1,2,3,4,5,6,7,8},banyak_data,kiri,kanan;
+    banyak_data=8;
+    kiri=0;
+    kanan=banyak_data-1;
+    binary(data,kiri,kanan);
+    
+	return 0;
+}
